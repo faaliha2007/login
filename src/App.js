@@ -20,9 +20,6 @@ function App() {
   const navigate = useNavigate();
   const timeRef = useRef(null)
 
-const BASE_URL = https://login-bend.onrender.com;
-
-
   function handleUser(evt) {
     setUser(evt.target.value);
   }
@@ -44,7 +41,7 @@ const BASE_URL = https://login-bend.onrender.com;
 
     setTimeout(async () => {
       try {
-        const response = await axios.post(`${BASE_URL}/login`, {
+        const response = await axios.post("https://login-bend.onrender.com", {
           username: user.trim(),
           password: pass.trim(),
         });
