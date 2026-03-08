@@ -20,7 +20,7 @@ function App() {
   const navigate = useNavigate();
   const timeRef = useRef(null)
 
-const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+const BASE_URL = https://login-bend.onrender.com;
 
 
   function handleUser(evt) {
