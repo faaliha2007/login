@@ -12,8 +12,7 @@ It features:
 
 ## 🎬 Demo
 
-[🔗 Live Preview](https://your-live-link.netlify.app)  
-*(Replace with your Netlify/Vercel/CodeSandbox link)*
+🔗👀 https://github.com/faaliha2007/login.git
 
 ---
 
