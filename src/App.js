@@ -2,10 +2,10 @@ import { useState, useRef } from 'react';
 import './App.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import againwrong from './againwrong.mp4'
-import first from './first.mp4'
-import correct from './correct.mp4'
-import wrong from './wrong.mp4'
+import againwrong from './againwrong.mp4';
+import first from './first.mp4';
+import correct from './correct.mp4';
+import wrong from './wrong.mp4';
 
 function App() {
   const [user, setUser] = useState("");
@@ -18,7 +18,7 @@ function App() {
   const videoRef = useRef();
   const resetBtnRef = useRef();
   const navigate = useNavigate();
-  const timeRef = useRef(null)
+  const timeRef = useRef(null);
 
   function handleUser(evt) {
     setUser(evt.target.value);
@@ -38,12 +38,14 @@ function App() {
     setLoading(true);
     setMessage("");
 
-
     setTimeout(async () => {
       try {
-        const response = await axios.post("https://login-bend-2.onrender.com/login", {
-          username: user.trim(),
-          password: pass.trim(),
+        // GET request with query parameters
+        const response = await axios.get("https://login-bend-2.onrender.com/login", {
+          params: {
+            username: user.trim(),
+            password: pass.trim()
+          }
         });
 
         if (response.data === true) {
@@ -54,8 +56,7 @@ function App() {
           if (videoRef.current) videoRef.current.src = correct;
           setTimeout(() => {
             navigate("/Success");
-          }, 6000)
-
+          }, 6000);
         } else {
           // FAILURE
           const newFailCount = failCount + 1;
@@ -71,11 +72,9 @@ function App() {
 
           if (resetBtnRef.current) resetBtnRef.current.style.display = "block";
 
-
           timeRef.current = setTimeout(() => {
             navigate("/Fail");
-          }, 8000)
-
+          }, 8000);
         }
       } catch (err) {
         console.error("Server error", err);
@@ -89,7 +88,7 @@ function App() {
 
   function resetForm() {
     if (timeRef.current) {
-      clearTimeout(timeRef.current)
+      clearTimeout(timeRef.current);
     }
     setFailCount(0);
     setUser("");
