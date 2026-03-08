@@ -41,7 +41,7 @@ function App() {
 
     setTimeout(async () => {
       try {
-        const response = await axios.post("https://login-bend.onrender.com", {
+        const response = await axios.post("https://login-bend-2.onrender.com/login", {
           username: user.trim(),
           password: pass.trim(),
         });
