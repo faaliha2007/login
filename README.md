@@ -47,9 +47,3 @@ It features:
 
 ---
 
-## 🚀 How to Run Locally
-
-1. Clone the repo  
-```bash
-git clone https://github.com/yourusername/spooky-login.git
-cd spooky-login
